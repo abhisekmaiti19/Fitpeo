@@ -1,38 +1,736 @@
-.App {
-  text-align: center;
+/* cdn for flaticons */
+@import url("https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css");
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:opsz@9..40&family=Nunito+Sans:opsz,wght@6..12,300;6..12,400&family=Tilt+Neon&display=swap");
+/* classNames of the icons  */
+
+:root {
+  /* Page background  */
+  --bg: #f5f6f8;
+  /* For Dashboard */
+  --primary: #040440;
+  --secondary: #696e92;
+  --active: #2d2d69;
+  --fontactive: #9e9eba;
+  /* For Progressbar */
+  --actprogress: #5a32ea;
+  --progress: #f2efff;
+  /* Common */
+  --stroke: #c2c6cc;
+  --earning: #d8ffea;
+  --actearning: #02ab4d;
+  --orders: #e7dbff;
+  --actorders: #a710ff;
+  --balance: #ccf2ff;
+  --actbalance: #0c5dc1;
+  --totalsales: #fecfef;
+  --acttotalsales: #e22945;
+  /* Gradients */
+  --gdpurple: linear-gradient(to bottom, #6b42e9, #bb83ef);
+  /* font  */
+  --myfont: "Tilt neon";
+}
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--myfont);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  background: var(--bg);
+  display: flex;
+  /* position: relative; */
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+#sidebar {
+  width: 20%;
+  height: 100%;
+  background-color: var(--primary);
+  color: white;
+  padding: 2%;
+  position: fixed;
   display: flex;
   flex-direction: column;
+}
+#up {
+  height: 70%;
+  /* border: 1px solid white; */
+}
+#logo {
+  /* border: 1px white solid; */
+  width: 100%;
+  height: 15%;
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+}
+#logo i {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5vw;
+  justify-content: space-evenly;
+  font-style: normal;
+  font-family: "Tilt neon";
+}
+#items {
+  height: 85%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+#item {
+  height: 12%;
+  width: 100%;
+  /* border: 1px solid white; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  justify-content: space-around;
+  font-size: 120%;
+  border-radius: 1vh;
+  font-family: var(--myfont);
+  color: var(--stroke);
+}
+.com {
+  width: 80%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  gap: 10%;
+  font-style: normal;
 }
 
-.App-link {
-  color: #61dafb;
+.active {
+  background-color: var(--active);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+#down {
+  height: 30%;
+  /* border: 1px solid white; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+#profile {
+  width: 20vw;
+  height: 10vh;
+  /* border: 1px solid white; */
+  background-color: var(--active);
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  border-radius: 1vw;
+  font-family: var(--myfont);
+  font-size: 100%;
+}
+#profile img {
+  width: 8vh;
+  height: 8vh;
+  border-radius: 20vw;
+}
+#details {
+  height: 50%;
+  /* border: 1px solid white; */
+  font-size: 1.2vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+#proname {
+  font-weight: 700;
+  font-size: large;
+}
+
+/* ========================================= Side bar  Responsive ====================================== */
+@media screen and (max-width: 760px) {
+  #sidebar {
+    width: 100%;
+    height: 10%;
+    display: flex;
+    flex-direction: row;
   }
-  to {
-    transform: rotate(360deg);
+  #logo {
+    display: none;
+  }
+  #down {
+    display: none;
+  }
+  #items {
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+  }
+  #up {
+    height: 100%;
+    width: 100%;
+  }
+  #item {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  .fi-rr-angle-small-right {
+    display: none;
+  }
+  .com {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 520px) {
+  .com {
+    font-size: 5vw;
+  }
+  .com span {
+    display: none;
+  }
+}
+
+/* ============================================================================== */
+
+#main {
+  width: 74vw;
+  height: 100%;
+  margin-left: 33%;
+  /* border: 1px solid black; */
+  display: flex;
+  flex-direction: column;
+}
+#search {
+  height: 18%;
+  width: 75%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  background-color: var(--bg);
+  z-index: 10000;
+  /* border: 1px solid black; */
+}
+#name {
+  width: 25%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.7vw;
+  font-family: var(--myfont);
+}
+#searchbox {
+  width: 30%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#searchbox input {
+  width: 60%;
+  height: 35%;
+  border-radius: 0 1vw 1vw 0;
+  border: 0.1vw solid var(--stroke);
+  border-left: none;
+  padding-left: 2%;
+}
+#searchbox i {
+  height: 36%;
+  width: 10%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 0.1vw solid var(--stroke);
+  border-right: none;
+  border-radius: 1vw 0 0 1vw;
+  background: rgb(255, 255, 255);
+  color: var(--fontactive);
+}
+
+#searchbox input:focus {
+  outline: none;
+}
+
+#status {
+  height: 10vw;
+  width: 100%;
+  /* border: 1px solid black; */
+  margin-top: 15%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+#card {
+  width: 17vw;
+  height: 10vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+  border-radius: 1.5vw;
+  background-color: white;
+}
+.carddetails {
+  display: flex;
+  width: 50%;
+  /* border: 1px solid black; */
+  height: 100%;
+  flex-direction: column;
+  justify-content: center;
+  font-family: var(--myfont);
+}
+
+#card > i {
+  width: 6vw;
+  height: 6vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 3vw;
+  border-radius: 5vw;
+}
+.fi-rr-badge-dollar {
+  background-color: var(--earning);
+  color: var(--actearning);
+}
+.fi-rr-receipt {
+  background-color: var(--orders);
+  color: var(--actorders);
+}
+.fi-rr-coins {
+  background-color: var(--balance);
+  color: var(--actbalance);
+}
+.fi-rr-shopping-bag {
+  background-color: var(--totalsales);
+  color: var(--acttotalsales);
+}
+
+#tname {
+  color: var(--stroke);
+}
+
+#value {
+  font-size: 2vw;
+  font-weight: 700;
+}
+#gainloss i {
+  font-style: normal;
+  font-size: 0.9vw;
+  font-weight: 800;
+}
+
+#gainloss {
+  font-size: 0.9vw;
+  width: 90%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.fi-rr-arrow-trend-down {
+  color: red;
+}
+.fi-rr-arrow-trend-up {
+  color: green;
+}
+
+#progress {
+  height: 40vh;
+  /* border: 1px solid black; */
+  margin-top: 2%;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+}
+#overview {
+  /* border: 1px solid black; */
+  background-color: white;
+  border-radius: 1vw;
+  width: 63%;
+  padding: 2%;
+}
+#overtitle {
+  width: 100%;
+  /* background-color: black; */
+  height: 15%;
+  display: flex;
+  /* padding-left: 5%; */
+  justify-content: space-between;
+  /* justify-content: space-around; */
+}
+#over {
+  display: flex;
+  flex-direction: column;
+  font-weight: 700;
+}
+#over > span {
+  font-weight: 100;
+  color: var(--stroke);
+}
+
+#qtr {
+  width: 15%;
+  border-radius: 0.5vw;
+  padding: 1%;
+  background-color: rgb(245, 245, 245);
+  opacity: 70%;
+}
+#prgsbar {
+  height: 85%;
+  width: 100%;
+  /* border: 1px solid black; */
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+#singlebar {
+  height: 100%;
+  width: 7%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  /* border: 1px solid black; */
+  align-items: center;
+}
+#bar {
+  height: 70%;
+  width: 100%;
+  background-color: var(--progress);
+  border-radius: 1vw;
+}
+#prgparcent {
+  width: 25%;
+  background-color: white;
+  border-radius: 1vw;
+}
+
+#customertitle {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 5%;
+  font-weight: 700;
+  font-size: large;
+}
+#customertitle > span {
+  font-weight: 100;
+  font-size: small;
+  color: var(--stroke);
+}
+
+#tablehold {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#table {
+  background-color: white;
+  border-radius: 1vw;
+  width: 85%;
+  margin-top: 2%;
+  padding: 5%;
+}
+#tablenav {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+#datasrch {
+  width: 40%;
+  display: flex;
+  justify-content: space-between;
+}
+#datasrch > #searchbox {
+  width: 60%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#datasrch > #searchbox > i {
+  height: 100%;
+  width: 30%;
+}
+
+#datasrch > #searchbox > input {
+  height: 90%;
+  width: 70%;
+}
+#datasrch > select {
+  width: 30%;
+}
+#Prdsell {
+  font-weight: 700;
+  font-size: large;
+}
+
+#tabletitle {
+  margin-top: 2%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--stroke);
+  border-bottom: 0.1vw solid var(--stroke);
+}
+#tabletitle ul {
+  width: 40%;
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+  font-weight: 100;
+}
+#desclist {
+  margin-top: 1%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+#singledata {
+  width: 100%;
+  /* background-color: #02ab4d; */
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+#productdesc {
+  width: 50%;
+  /* border: 1px solid black; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+#productdesc img {
+  width: 30%;
+  height: 100%;
+  border-radius: 0.75vw;
+}
+#prdnames {
+  /* border: 1px solid black; */
+  width: 65%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  font-size: large;
+  font-weight: 700;
+}
+#prdnames span {
+  font-weight: 100;
+  font-size: small;
+  color: var(--stroke);
+}
+#descall {
+  /* border: 1px solid black; */
+  width: 40%;
+  min-height: 100%;
+  display: flex;
+  justify-content: space-between;
+  list-style-type: none;
+  align-items: center;
+}
+
+/* =======================================   Responsive design codes ===================================== */
+
+@media screen and (max-width: 1400px) {
+  #search {
+    height: 8vh;
+  }
+}
+@media screen and (max-width: 760px) {
+  #main {
+    width: 100vw;
+    /* background-color: #02ab4d; */
+    margin-left: 0;
+    margin-top: 10vh;
+    border: 1px solid black;
+    display: flex;
+  }
+  #search {
+    width: 100vw;
+  }
+  #status {
+    height: 25vh;
+    /* border: 1px solid black; */
+  }
+  #card {
+    height: 80%;
+    width: 22vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+  #emni {
+    width: 15vw;
+    height: 15vw;
+    border-radius: 15vw;
+  }
+  #card div {
+    /* border: 1px solid black; */
+    height: 40%;
+    width: 90%;
+  }
+  #card #tname {
+    font-size: 2vw;
+  }
+  .carddetails {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  #gainloss {
+    width: 100%;
+    height: 30%;
+    display: flex;
+    align-items: center;
+    font-size: 1.5vw;
+    /* border: 1px solid black; */
+  }
+  #gainloss i {
+    font-size: 1.5vw;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  #name {
+    width: 40%;
+    font-size: 4vw;
+  }
+  #root {
+    width: 100vw;
+    height: 100vh;
+    border: none;
+    /* background-color: #02ab4d; */
+  }
+  #adjust {
+    width: 100vw;
+    height: 100vh;
+  }
+  #main {
+    margin-top: 0;
+    border: none;
+  }
+  #search {
+    margin-top: 12vh;
+  }
+  #status {
+    margin-top: 18vh;
+  }
+  #over {
+    font-size: 3vw;
+  }
+  #search #searchbox > i {
+    height: 38%;
+  }
+  #searchbox {
+    font-size: 3vw;
+  }
+  #searchbox {
+    width: 60%;
+  }
+  #status {
+    height: 20vh;
+  }
+  #card {
+    height: 50%;
+    width: 22vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+  #emni {
+    width: 15vw;
+    height: 15vw;
+    border-radius: 15vw;
+  }
+  #card div {
+    /* border: 1px solid black; */
+    height: 60%;
+    width: 90%;
+    display: flex;
+    justify-content: space-around;
+  }
+  #card #tname {
+    font-size: 2vw;
+  }
+  .carddetails {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  #gainloss {
+    width: 100%;
+    height: 30%;
+    display: flex;
+    align-items: center;
+    font-size: 2vw;
+    /* border: 1px solid black; */
+  }
+  #value {
+    font-size: 3.5vw;
+  }
+  #gainloss i {
+    font-size: 2vw;
+  }
+  #progress {
+    margin-top: 0;
+    /* height: 50vh;  */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  #overview {
+    width: 90%;
+    height: 50%;
+  }
+  #bar {
+    width: 50%;
+  }
+  #mnth {
+    font-size: 3vw;
+  }
+  #qtr {
+    width: 40%;
+  }
+  #prgparcent {
+    width: 80%;
+  }
+  #datasrch {
+    width: 60%;
+  }
+  #datasrch > #qtr {
+    font-size: 2vw;
+  }
+  #productothers {
+    width: 60%;
+    font-size: 3vw;
+  }
+  #singledata {
+    height: 5vh;
+  }
+
+  #descall {
+    font-size: 2vw;
+  }
+  #productname {
+    font-size: 3vw;
+  }
+  #prdnames {
+    font-size: 3vw;
+  }
+  #prdnames span {
+    font-size: 1.5vw;
+  }
+  #productdesc img {
+    width: 10vw;
+    height: 8vw;
   }
 }
