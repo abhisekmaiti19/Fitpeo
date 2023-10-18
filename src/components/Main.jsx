@@ -1,5 +1,6 @@
 import React from 'react'
 import '../App.css'
+import Pie from './Pie'
 
 export default function Main() {
   return (
@@ -128,7 +129,9 @@ export default function Main() {
               Customers
               <span>Customers that buy products</span>
             </span>
-            <div id="piechart"></div>
+            <div id="piechart">
+              <Pie/>
+            </div>
           </div>
         </section>
 

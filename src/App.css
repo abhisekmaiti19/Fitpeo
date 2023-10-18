@@ -753,4 +753,27 @@ body {
     width: 10vw;
     height: 8vw;
   }
+  #prgparcent {
+    height: 40%;
+    width: 94%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  #customertitle {
+    width: 30%;
+  }
+  #piechart {
+    width: 30%;
+    /* border: 1px solid black; */
+  }
+  /* #piechart; */
+}
+/* prgparcent */
+#piechart {
+  height: 70%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* border: 1px solid black; */
 }
