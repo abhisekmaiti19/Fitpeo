@@ -544,6 +544,9 @@ body {
   }
 }
 @media screen and (max-width: 760px) {
+  * {
+    overflow: hidden;
+  }
   #main {
     width: 100vw;
     /* background-color: #02ab4d; */
@@ -551,6 +554,20 @@ body {
     margin-top: 10vh;
     border: 1px solid black;
     display: flex;
+  }
+  #adjust {
+    width: 100vw;
+    height: 100vh;
+  }
+  #main {
+    margin-top: 0;
+    border: none;
+  }
+  #search {
+    margin-top: 12vh;
+  }
+  #status {
+    margin-top: 18vh;
   }
   #search {
     width: 100vw;
@@ -595,6 +612,9 @@ body {
   }
   #gainloss i {
     font-size: 1.5vw;
+  }
+  #search {
+    border: none;
   }
 }
 
