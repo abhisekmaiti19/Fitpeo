@@ -1,55 +1,38 @@
 import React from 'react'
+import Item from './sidebar/Item';
+import Logo from './sidebar/Logo'
+import Profile from './sidebar/Profile'
 import "../App.css";
 
 export default function Sidebar() {
+  const icons = {
+    home:"fi fi-rr-house-chimney",
+    product: "fi fi-rr-box-open-full com",
+    customers : "fi fi-rr-comment-user com",
+    income: "fi fi-rr-wallet com",
+    help:"fi fi-rr-info com"
+
+
+  }
   return (
     <section id="sidebar">
       <div id="up">
-       
-        <div id="logo">
-          <i class="fi fi-rr-house-chimney-crack com">Dashboard</i>
-        </div>
-       
+        <Logo/>
         <div id="items">
-         
-          <div id="item" class="active">
-            <i class="fi fi-rr-house-chimney com"><span>Home</span></i>
-            <i></i>
-          </div>
-          
-
-          <div id="item">
-            <i class="fi fi-rr-box-open-full com"><span>Product</span></i>
-            <i class="fi fi-rr-angle-small-right"></i>
-          </div>
-          <div id="item">
-            <i class="fi fi-rr-comment-user com"><span>Customers</span></i>
-            <i class="fi fi-rr-angle-small-right"></i>
-          </div>
-          <div id="item">
-            <i class="fi fi-rr-wallet com"><span>Income</span></i>
-            <i class="fi fi-rr-angle-small-right"></i>
-          </div>
-          <div id="item">
-            <i class="fi fi-rr-info com"><span>Help</span></i>
-            <i class="fi fi-rr-angle-small-right"></i>
-          </div>
+          <Item data={[icons.home,"no","Home","active"]} />
+          <Item data={[icons.product,"yes","Products",""]} />
+          <Item data={[icons.customers,"yes","Customers",""]} />
+          <Item data={[icons.income,"yes","Income",""]} />
+          <Item data={[icons.help,"yes","Help",""]} />   
         </div>
       
       </div>
       <div id="down">
       
-        <div id="profile">
-          <img
-            src="https://pbs.twimg.com/profile_images/1674815862879178752/nTGMV1Eo_400x400.jpg"
-            alt=""
-          />
-          <div id="details">
-            <span id="proname">Evano</span>
-            <span>Project Manager</span>
-          </div>
-          <i class="fi fi-rr-angle-small-down"></i>
-        </div>
+        <Profile  
+        imgsrc="https://pbs.twimg.com/profile_images/1674815862879178752/nTGMV1Eo_400x400.jpg"  
+        proname="Evano" 
+        designation="Project Manager"/>
        
       </div>
     </section>
